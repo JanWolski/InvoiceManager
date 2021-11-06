@@ -3,15 +3,16 @@ package jw.lab2.invoice;
 import java.util.Scanner;
 
 
-public class ClientsMenu extends Menu {
+public class MenuClients extends Menu {
 
   private Menu invoiceMenu;
   private Prompt prompt;
 
-  public ClientsMenu(IDatabaseAdapter database, Menu parentMenu) {
+  public MenuClients(IDatabaseAdapter database, Menu parentMenu) {
     super(database, parentMenu);
     prompt = new Prompt(database);
-    invoiceMenu = new InvoicesMenu(database, this);
+    invoiceMenu = new MenuInvoices(database, this);
+    header = "===Clients===";
   }
 
   public void addRecord() {
@@ -19,7 +20,7 @@ public class ClientsMenu extends Menu {
     loadMenu();
   }
 
-  public void loadRecords(String arg) {
+  public void loadRecords(String... arg) {
     records = database.loadClients();
   }
 

@@ -8,19 +8,8 @@ public class ClassDatabaseAdapter implements IDatabaseAdapter {
   }
 
   @Override
-  public void addClient(String client) {
-    database.addClient(client);
-  }
-
-  @Override
   public String[] loadClients() {
     return database.loadClients();
-  }
-
-  @Override
-  public void addInvoice(String client, String invoice) {
-    database.addInvoice(client,invoice);
-      
   }
 
   @Override

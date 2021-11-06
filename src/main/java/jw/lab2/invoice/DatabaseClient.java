@@ -10,6 +10,7 @@ public class Client {
   HashMap <String, Invoice> invoices;
 
   public Client(String name) {
+    invoices = new HashMap<>();
     this.name = name;
   }
 

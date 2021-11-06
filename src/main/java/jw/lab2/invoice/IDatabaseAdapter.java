@@ -2,12 +2,8 @@ package jw.lab2.invoice;
 
 public interface IDatabaseAdapter {
 
-  void addClient(String client);
-
   String[] loadClients();
 
-
-  void addInvoice(String client, String invoice);
 
   String[] loadInvoices(String client);
 

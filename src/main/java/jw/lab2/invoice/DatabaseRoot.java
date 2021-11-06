@@ -25,6 +25,14 @@ public class DatabaseClients {
     return clientsNames;
   }
 
+  public String[] loadInvoices(String client) {
+    return clients.get(client).loadInvoices();
+  }
+
+  public String[] loadElements(String client, String invoice) {
+    return clients.get(client).loadElements(invoice);
+  }
+
   public void addElement(String client, String invoice, String article, int price, int amount) {
     if (clients.containsKey(client) == false) {
       addClient(client);
@@ -32,7 +40,4 @@ public class DatabaseClients {
     clients.get(client).addElement(invoice, article, price, amount);
   }
 
-  public String[] loadElements(String client, String invoice) {
-    return clients.get(client).loadElements(invoice);
-  }
 }

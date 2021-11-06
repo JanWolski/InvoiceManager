@@ -8,6 +8,7 @@ public class Invoice {
   String name;
 
   public Invoice(String name) {
+    elements = new HashMap<>();
     this.name = name;
   }
 

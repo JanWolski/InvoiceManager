@@ -9,6 +9,7 @@ public abstract class Menu {
 
   Scanner inputReader;
   String[] records;
+  String header = "====";
 
   public Menu(IDatabaseAdapter database, Menu parentMenu) {
     this.database = database;
@@ -18,14 +19,14 @@ public abstract class Menu {
 
   public abstract void addRecord();
 
-  public abstract void loadRecords(String arg);
+  public abstract void loadRecords(String... arg);
 
-  public abstract void selectRecord(String arg);
+  public abstract void selectRecord(String... arg);
 
   public void loadMenu() {
     loadMenu(null);
   }
-  
+
   public void loadMenu(String arg) {
     loadRecords(arg);
     showMenu();
@@ -37,8 +38,9 @@ public abstract class Menu {
   }
 
   public void printRecords() {
+    System.out.println(header);
     for (int i = 0; i < records.length; i++) {
-      System.out.println(Integer.toString(i + i) + ") " + records[i]);
+      System.out.println(Integer.toString(i + 1) + ") " + records[i]);
     }
     System.out.println("\n0) Add record.");
     if (parentMenu != null) {

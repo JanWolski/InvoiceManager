@@ -1,13 +1,14 @@
 package jw.lab2.invoice;
 
-public class InvoicesMenu extends Menu {
+public class MenuInvoices extends Menu {
 
   private String client;
   private Prompt prompt;
 
-  public InvoicesMenu(IDatabaseAdapter database, Menu parentMenu) {
+  public MenuInvoices(IDatabaseAdapter database, Menu parentMenu) {
     super(database, parentMenu);
     prompt = new Prompt(database);
+    header = "===Invoice===";
   }
 
   public void addRecord() {
@@ -15,8 +16,9 @@ public class InvoicesMenu extends Menu {
     loadMenu();
   }
 
-  public void loadRecords(String arg) {
-    client = arg;
+  public void loadRecords(String... arg) {
+    client = arg[0];
+    header = "===" + client + " invoices===";
     records = database.loadInvoices(client);
   }
 
