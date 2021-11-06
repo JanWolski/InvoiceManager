@@ -25,6 +25,7 @@ public abstract class Menu {
   public void loadMenu() {
     loadMenu(null);
   }
+  
   public void loadMenu(String arg) {
     loadRecords(arg);
     showMenu();

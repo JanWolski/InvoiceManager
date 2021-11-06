@@ -3,6 +3,10 @@ package jw.lab2.invoice;
 public class ClassDatabaseAdapter implements IDatabaseAdapter {
   DatabaseClients database;
 
+  public ClassDatabaseAdapter() {
+    database = new DatabaseClients();
+  }
+
   @Override
   public void addClient(String client) {
     database.addClient(client);
@@ -15,7 +19,7 @@ public class ClassDatabaseAdapter implements IDatabaseAdapter {
 
   @Override
   public void addInvoice(String client, String invoice) {
-    database.addInvoice(client);
+    database.addInvoice(client,invoice);
       
   }
 

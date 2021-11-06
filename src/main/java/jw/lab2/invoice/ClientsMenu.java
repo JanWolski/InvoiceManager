@@ -1,16 +1,22 @@
 package jw.lab2.invoice;
 
+import java.util.Scanner;
+
+
 public class ClientsMenu extends Menu {
 
   private Menu invoiceMenu;
+  private Prompt prompt;
 
   public ClientsMenu(IDatabaseAdapter database, Menu parentMenu) {
     super(database, parentMenu);
-    invoiceMenu = new InvoiceMenu(database, this);
+    prompt = new Prompt(database);
+    invoiceMenu = new InvoicesMenu(database, this);
   }
 
   public void addRecord() {
-    database.addClient("Client");
+    prompt.input();
+    loadMenu();
   }
 
   public void loadRecords(String arg) {
